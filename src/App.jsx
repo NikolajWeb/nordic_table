@@ -7,8 +7,10 @@ import Menu from "./pages/Menu.jsx";
 import Booking from "./pages/Booking.jsx";
 
 /* Nav - Footer */
-//import Nav from "./components/nav/Nav.jsx";
+import Navigation from "./components/navigation/Navigation.jsx";
 import Footer from "./components/pageFooter/PageFooter.jsx";
+
+
 /* Routes */
 const routes = [
   { path: "/", element: <Home /> },
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <main>
+      <Navigation />
       {element}
       <Footer />
     </main>
