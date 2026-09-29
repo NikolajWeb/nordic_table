@@ -7,9 +7,11 @@
 
   /* Farver */
   --color-primary: #7C632F;
+  --color-text: #5F5F5F;
   --color-white: #FFFFFF;
   --color-black: #000000;
   --color-grey: #1F1F1F;
+  --color-mute: #cccccc;
 }
 
 /* Grundopsætning */

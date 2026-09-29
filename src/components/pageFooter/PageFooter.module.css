@@ -1,0 +1,82 @@
+.footer {
+    background-color: var(--color-grey);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 150px;
+    margin-top: 20px
+}
+
+.infoText {
+    color: var(--color-mute);
+    margin-block: 20px;
+}
+
+.icon {
+    width: 50px;
+    margin: 20px 10px 0;
+    filter: invert(100%) brightness(50%);
+}
+
+.openTime {
+    margin-block: 50px;
+}
+
+.openTimeHeading {
+    font-size: 1.2rem;
+    font-weight: bold; 
+    margin-block: 40px 20px;
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 28px;
+    width: 100%;
+
+}
+
+.grid p {
+    margin: 0;
+}
+
+.gridItem {
+    color: var(--color-mute);
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+.gridTitle {
+    color: var(--color-text);
+}
+
+.contactContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+}
+
+
+.contactIcon {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    filter: invert(69%) sepia(22%) saturate(650%) hue-rotate(359deg) brightness(89%) contrast(88%);
+}
+
+.copyright {
+    margin-block: 40px 20px;
+    text-align: center;
+    border-top: 1px solid var(--color-text);
+}
+
+.copyrightText {
+    color: var(--color-mute);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}

@@ -6,6 +6,9 @@ import Home from "./pages/Home.jsx";
 import Menu from "./pages/Menu.jsx";
 import Booking from "./pages/Booking.jsx";
 
+/* Nav - Footer */
+//import Nav from "./components/nav/Nav.jsx";
+import Footer from "./components/pageFooter/PageFooter.jsx";
 /* Routes */
 const routes = [
   { path: "/", element: <Home /> },
@@ -19,6 +22,7 @@ function App() {
   return (
     <main>
       {element}
+      <Footer />
     </main>
   );
 }
