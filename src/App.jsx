@@ -7,6 +7,7 @@ import Menu from "./pages/Menu.jsx";
 import Booking from "./pages/Booking.jsx";
 import Login from "./pages/login/Login.jsx";
 import Backoffice from "./pages/backoffice/Backoffice.jsx";
+import NotFound from "./pages/404.jsx";
 
 /* Nav - Footer */
 import Navigation from "./components/navigation/Navigation.jsx";
@@ -19,6 +20,9 @@ const routes = [
   { path: "/booking", element: <Booking /> },
   { path: "/login", element: <Login /> },
   { path: "/backoffice", element: <Backoffice /> },
+
+  // 404
+  { path: "*", element: <NotFound /> },
 ];
 
 function App() {
