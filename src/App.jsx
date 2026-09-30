@@ -18,7 +18,7 @@ import Navigation from "./components/navigation/Navigation.jsx";
 import PageFooter from "./components/pageFooter/PageFooter.jsx";
 
 /* Loaders */
-import backofficeLoader from "./loaders/DataLoaders";
+import backofficeLoader from "./loaders/DataLoaders.jsx";
 
 /* Layout */
 function AppLayout() {
@@ -45,10 +45,26 @@ const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/menu", element: <Menu /> },
-      { path: "/booking", element: <Booking /> },
-      { path: "/login", element: <Login /> },
+      {
+        path: "/",
+        element: <Home />,
+        loader: backofficeLoader,
+      },
+
+      {
+        path: "/menu",
+        element: <Menu />,
+      },
+
+      {
+        path: "/booking",
+        element: <Booking />,
+      },
+
+      {
+        path: "/login",
+        element: <Login />,
+      },
 
       {
         path: "/backoffice",
@@ -56,7 +72,10 @@ const router = createBrowserRouter([
         loader: backofficeLoader,
       },
 
-      { path: "*", element: <NotFound /> },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
     ],
   },
 ]);
