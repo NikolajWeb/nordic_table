@@ -13,13 +13,21 @@ import NotFound from "./pages/404.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
 import PageFooter from "./components/pageFooter/PageFooter.jsx";
 
+/* Loaders */
+import backofficeLoader from "./loaders/DataLoaders";
+
 /* Routes */
 const routes = [
   { path: "/", element: <Home /> },
   { path: "/menu", element: <Menu /> },
   { path: "/booking", element: <Booking /> },
   { path: "/login", element: <Login /> },
-  { path: "/backoffice", element: <Backoffice /> },
+  
+  {
+    path: "/backoffice",
+    element: <Backoffice />,
+    loader: backofficeLoader,
+  },
 
   // 404
   { path: "*", element: <NotFound /> },
