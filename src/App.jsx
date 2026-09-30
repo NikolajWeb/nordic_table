@@ -1,5 +1,9 @@
 import "./App.css";
-import { useRoutes, useLocation } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 
 /* Pages */
 import Home from "./pages/Home.jsx";
@@ -16,28 +20,10 @@ import PageFooter from "./components/pageFooter/PageFooter.jsx";
 /* Loaders */
 import backofficeLoader from "./loaders/DataLoaders";
 
-/* Routes */
-const routes = [
-  { path: "/", element: <Home /> },
-  { path: "/menu", element: <Menu /> },
-  { path: "/booking", element: <Booking /> },
-  { path: "/login", element: <Login /> },
-  
-  {
-    path: "/backoffice",
-    element: <Backoffice />,
-    loader: backofficeLoader,
-  },
-
-  // 404
-  { path: "*", element: <NotFound /> },
-];
-
-function App() {
-  const element = useRoutes(routes);
+/* Layout */
+function AppLayout() {
   const location = useLocation();
 
-  // Skjul footer på login og backoffice
   const isLoginPage = location.pathname === "/login";
   const isBackoffice = location.pathname === "/backoffice";
 
@@ -47,11 +33,33 @@ function App() {
     <main>
       <Navigation />
 
-      {element}
+      <Outlet />
 
       {!minimalLayout && <PageFooter />}
     </main>
   );
 }
 
-export default App;
+/* Router */
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/menu", element: <Menu /> },
+      { path: "/booking", element: <Booking /> },
+      { path: "/login", element: <Login /> },
+
+      {
+        path: "/backoffice",
+        element: <Backoffice />,
+        loader: backofficeLoader,
+      },
+
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
+
+export { router };
+export default AppLayout;

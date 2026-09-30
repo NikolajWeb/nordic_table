@@ -1,54 +1,101 @@
-import serverPath from "../settings.jsx";
+import { serverPath } from "../settings.jsx";
 
 const useCrud = () => {
-  const { token } = useAuthContext();
+    // Hjælpefunktion til at håndtere alle API-svar
+    const handleResponse = async (response) => {
+        const text = await response.text();
 
-  const authHeader = token
-    ? { Authorization: `Bearer ${token}` }
-    : {};
+        console.log("HTTP status:", response.status);
+        console.log("Backend svar:", text);
 
-  const create = async (endpoint, formData) => {
-    const response = await fetch(`${serverPath}/${endpoint}`, {
-      method: "POST",
-      headers: authHeader,
-      body: formData,
-    });
+        let data = null;
 
-    if (!response.ok) {
-      throw new Error("Kunne ikke oprette");
-    }
+        if (text) {
+            try {
+                data = JSON.parse(text);
+            } catch {
+                data = text;
+            }
+        }
 
-    return response.json();
-  };
+        if (!response.ok) {
+            let message = "Der opstod en fejl";
 
-  const remove = async (endpoint, id) => {
-    const response = await fetch(`${serverPath}/${endpoint}/${id}`, {
-      method: "DELETE",
-      headers: authHeader,
-    });
+            if (data && typeof data === "object") {
+                message =
+                    data.message ||
+                    data.error ||
+                    `HTTP fejl ${response.status}`;
+            } else if (typeof data === "string" && data) {
+                message = data;
+            }
 
-    if (!response.ok) {
-      throw new Error("Kunne ikke slette");
-    }
+            throw new Error(message);
+        }
+        return data;
+    };
 
-    return true;
-  };
+    // CREATE
+    const create = async (endpoint, formData) => {
+        try {
+            const response = await fetch(
+                `${serverPath}/${endpoint}`,
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
-  const update = async (endpoint, formData) => {
-    const response = await fetch(`${serverPath}/${endpoint}`, {
-      method: "PUT",
-      headers: authHeader,
-      body: formData,
-    });
+            return await handleResponse(response);
+        } catch (error) {
+            console.error("Create error:", error);
+            throw error;
+        }
+    };
 
-    if (!response.ok) {
-      throw new Error("Kunne ikke opdatere");
-    }
+    // DELETE
+    const remove = async (endpoint, id) => {
+        try {
+            const response = await fetch(
+                `${serverPath}/${endpoint}/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
 
-    return response.json();
-  };
+            return await handleResponse(response);
+        } catch (error) {
+            console.error("Delete error:", error);
+            throw error;
+        }
+    };
 
-  return { create, remove, update };
+    // UPDATE
+    const update = async (endpoint, formData) => {
+        try {
+            const response = await fetch(
+                `${serverPath}/${endpoint}`,
+                {
+                    method: "PUT",
+                    body: formData,
+                }
+            );
+
+            return await handleResponse(response);
+        } catch (error) {
+            console.error("Update error:", error);
+            throw error;
+        }
+    };
+
+    return {
+        create,
+        remove,
+        update,
+
+        isLoading: false,
+        error: null,
+    };
 };
 
 export { useCrud };
