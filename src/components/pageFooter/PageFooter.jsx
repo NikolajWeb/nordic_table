@@ -1,4 +1,5 @@
 import styles from "./PageFooter.module.css";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/icons/logoWhite.png";
 
 // Icons
@@ -33,10 +34,8 @@ const Footer = () => {
 
             <div className={styles.links}>
                 <p className={styles.openTimeHeading}>Hurtige links</p>
-                <p href="/" className={styles.gridItem}>Book bord</p>
-                <p href="/" className={styles.gridItem}>Personale</p>
-
-
+                <NavLink to="/booking" className={styles.gridItem}>Book bord</NavLink>
+                <NavLink to="/staff" className={styles.gridItem}>Personale</NavLink>
             </div>
 
             <div className={styles.contact}>
