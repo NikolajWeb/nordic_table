@@ -1,0 +1,134 @@
+.title {
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.form label {
+    font-weight: 600;
+    margin-top: 10px;
+    font: var(--font-body);
+    text-transform: uppercase;
+    color: var(--color-text);
+    font-size: 20px;
+}
+
+.form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form input:focus {
+    outline: none;
+    border-color: var(--color-black);
+}
+
+/* Dato + tidspunkt */
+
+.dateTimeRow {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.field {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    margin-top: 10px;
+}
+
+.field input {
+    width: 80%;
+    box-sizing: border-box;
+}
+
+/* Fejl */
+.error {
+    color: #d32f2f;
+    font-size: 14px;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.card {
+    position: relative;
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 300px;
+}
+
+.content p {
+    margin: 8px 0;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.success {
+    color: #222;
+}
+
+/* BTN */
+.submitButton {
+    margin-top: 20px;
+    padding: 15px 24px;
+    border: none;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font: var(--font-body);
+}
+
+.submitButton:hover {
+    opacity: 0.8;
+}
+
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
