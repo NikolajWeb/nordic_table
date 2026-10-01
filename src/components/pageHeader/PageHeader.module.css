@@ -1,0 +1,80 @@
+.PageHeader {
+    padding: 40px;
+    background-image: url(../../assets/headerbg.png);
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.PageHeaderHeading {
+    color: #B39659;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.PageHeaderHeading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #B39659;
+}
+
+.PageHeaderTitle {
+    font-size: 40px;
+    color: var(--color-white);
+    padding-bottom: 20px;
+    width: 50%;
+}
+
+.PageHeaderDescription {
+    font-size: 16px;
+    color: var(--color-background);
+    font-weight: 200;
+    line-height: 1.8;
+}
+
+/* HIGH VARIANT */
+.high {
+    padding: 30px;
+    height: 600px;
+}
+
+/* LOW VARIANT */
+.low {
+    padding: 20px;
+    height: 300px;
+}
+
+/* LOW - fjern streg */
+.low .PageHeaderHeading {
+    padding-left: 0;
+}
+
+.low .PageHeaderHeading::before {
+    display: none;
+}
+
+/* LOW - bredere title */
+.low .PageHeaderTitle {
+    width: 300px;
+    font-size: 35px;
+}
+.low .PageHeaderDescription {
+    padding-bottom: 10px;
+}
+
+.PageHeaderButtonContainer {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+}

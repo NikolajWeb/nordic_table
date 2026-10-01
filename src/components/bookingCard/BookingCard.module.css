@@ -9,6 +9,7 @@
 .BookingCardHeading {
     color: #C7A966;
     text-transform: uppercase;
+    padding-bottom: 1rem;
 }
 
 .BookingCardTitle {

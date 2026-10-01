@@ -1,10 +1,17 @@
- 
+
+// Components
+import PageHeader from "../components/pageHeader/PageHeader";
 
 const Booking = () => {
 
   return (
     <article>
-        <h1>Booking</h1>
+      <PageHeader
+        variant="low"
+        Heading="Reservationer"
+        Title="Book dit bord"
+        Description="Vi glæder os til at modtage dig. Book dit bord nedenfor, og vi sørger for resten."
+      />
     </article>
   );
 };
