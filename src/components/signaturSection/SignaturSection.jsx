@@ -1,4 +1,5 @@
 import styles from "./SignaturSection.module.css";
+import Button from "../button/Button.jsx";
 
 const SignaturSection = ({ dishes = [] }) => {
     const signaturretter = dishes.filter(
@@ -54,6 +55,13 @@ const SignaturSection = ({ dishes = [] }) => {
                         </div>
                     </article>
                 ))}
+
+                <Button
+                    buttonText="Se hele menuen"
+                    variant="clear"
+                    whereToGo="/menu"
+                />
+
             </div>
         </section>
     );
