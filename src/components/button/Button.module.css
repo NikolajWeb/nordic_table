@@ -1,5 +1,5 @@
 .button {
-    padding: 12px 35px;
+    padding: 12px 20px;
     margin: 0px auto;
     cursor: pointer;
     font-size: 16px;
@@ -26,4 +26,11 @@
     background: var(--color-primary);
     color: var(--color-white);
     border: none;
+}
+/* White variant */
+
+.white {
+    background: transparent;
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
