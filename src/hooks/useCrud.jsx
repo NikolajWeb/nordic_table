@@ -36,13 +36,22 @@ const useCrud = () => {
     };
 
     // CREATE
-    const create = async (endpoint, formData) => {
+    const create = async (endpoint, data) => {
         try {
+            const isFormData = data instanceof FormData;
+
             const response = await fetch(
                 `${serverPath}/${endpoint}`,
                 {
                     method: "POST",
-                    body: formData,
+                    headers: isFormData
+                        ? {}
+                        : {
+                            "Content-Type": "application/json",
+                        },
+                    body: isFormData
+                        ? data
+                        : JSON.stringify(data),
                 }
             );
 
